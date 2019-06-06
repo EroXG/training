@@ -4,6 +4,7 @@
 
 ## 制御構造(Control Expessions)
 >Rubyでは(Cなどとは異なり)制御構造は式であって、何らかの値を返すものが あります(返さないものもあります。値を返さない式を代入式の右辺に置くと syntax error になります)。 
+* 「制御式」の方が内容を的確に表す
 
 ### [制御構造 if](https://docs.ruby-lang.org/ja/latest/doc/spec=2fcontrol.html#if)
 #### 偽と真
