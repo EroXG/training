@@ -10,9 +10,12 @@
 #### 偽と真
 >Ruby では [false](https://docs.ruby-lang.org/ja/latest/class/FalseClass.html) または [nil](https://docs.ruby-lang.org/ja/latest/class/NilClass.html) だけが偽で、それ以外は 0 や空文 字列も含め全て真です。
 
+<details><summary>false と nil 詳細</summary>
+
 > false は FalseClass クラスの唯一のインスタンスです。 false は nil オブジェクトとともに偽を表し、 その他の全てのオブジェクトは真です。 [source](https://docs.ruby-lang.org/ja/latest/class/FalseClass.html)
 
->nil は NilClass クラスの唯一のインスタンスです。 nil は false オブジェクトとともに偽を表し、 その他の全てのオブジェクトは真です。[source](https://docs.ruby-lang.org/ja/latest/class/NilClass.html) 
+> nil は NilClass クラスの唯一のインスタンスです。 nil は false オブジェクトとともに偽を表し、 その他の全てのオブジェクトは真です。[source](https://docs.ruby-lang.org/ja/latest/class/NilClass.html) 
+</details>
 
 * false, nil, true は[予約語](https://docs.ruby-lang.org/ja/latest/doc/spec=2flexical.html#reserved)
 
@@ -22,7 +25,12 @@
  ```ruby
 return if val == nil
 ```
+```ruby
+puts 'OK' if val == true
+```
 >右辺の条件が成立する時に、左辺の式を評価してその結果を返します。 条件が成立しなければ nil を返します。
+
+:question:
       
 
 
@@ -33,3 +41,5 @@ return if val == nil
 
 markdown参考
 * [guides.github](https://guides.github.com/features/mastering-markdown/)
+
+* [emoji](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
