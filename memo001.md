@@ -5,6 +5,7 @@
 ## 制御構造(Control Expessions)
 
 >Rubyでは(Cなどとは異なり)制御構造は式であって、何らかの値を返すものが あります(返さないものもあります。値を返さない式を代入式の右辺に置くと syntax error になります)。 
+
 * 「制御式」の方が内容を的確に表すか
 
 ### [if ](https://docs.ruby-lang.org/ja/latest/doc/spec=2fcontrol.html#if)(if Expression)
@@ -45,9 +46,27 @@ puts 'OK' if val == true
 
 :question: 条件が成立しなければ nil を返します。
 
-#### 条件演算子(Ternary if)
+複文
+``` ruby
+puts 'one'; puts 'two' if false
+```
+\#=> one　左辺は puts 'two' のみ
 
-[参照](https://docs.ruby-lang.org/ja/latest/doc/spec=2foperator.html#cond)  
+``` ruby
+(puts 'one'; puts 'two') if false
+```
+
+* ( )で括れば複文可能
+
+#### [条件演算子](https://docs.ruby-lang.org/ja/latest/doc/spec=2foperator.html#cond)(Ternary if)
+>式1 ? 式2 : 式3
+
+は
+
+>if 式1 then 式2 else 式3 end
+
+と同じ
+
 
 ## case (case Expression)
 文法
@@ -62,6 +81,7 @@ case [式]
   式..]
 end
 ```
+
 * 制御が次の when 節に「落ちる」ことはないので break 不要。
 
 >case は一つの式に対する一致判定による分岐を行います。when 節で指定された値と最初の式を評価した結果とを演算子 === を用いて 比較して、一致する場合には when 節の本体を評価します。 
@@ -80,6 +100,7 @@ when arg.is_a? String
   val= arg
 ```
 
+# [Encoding クラス](https://docs.ruby-lang.org/ja/latest/class/Encoding.html)
 
 # markdown参考
 
