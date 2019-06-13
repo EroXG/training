@@ -1,12 +1,61 @@
+
  * [ryby-lang.org](https://docs.ruby-lang.org/ja/latest/doc/index.html)
 原著 まつもとゆきひろ
 より適宜引用
+
+<details>
+<summary> 
+
+##  [字句構造](https://docs.ruby-lang.org/ja/latest/doc/spec=2flexical.html) </summary>
+
+<br>
+
+
+> 改行は行が明らかに次の 行に継続する時だけ、空白文字として、それ以外では文の区切りと して解釈されます。 
+
+例　空白文字として
+
+``` ruby
+a=
+  100
+puts a #=>100
+```
+
+``` ruby
+def add a, b, c
+  a+b+c
+end
+
+puts add(
+  10,
+  20,
+  30
+) #=>60
+```
+
+### [予約語](https://docs.ruby-lang.org/ja/latest/doc/spec=2flexical.html#reserved)
+
+``` ruby
+BEGIN    class    ensure   nil      self     when
+END      def      false    not      super    while
+alias    defined? for      or       then     yield
+and      do       if       redo     true     __LINE__
+begin    else     in       rescue   undef    __FILE__
+break    elsif    module   retry    unless   __ENCODING__
+case     end      next     return   until
+```
+
+</details>
+
+<br>
 
 ## 制御構造(Control Expessions)
 
 >Rubyでは(Cなどとは異なり)制御構造は式であって、何らかの値を返すものが あります(返さないものもあります。値を返さない式を代入式の右辺に置くと syntax error になります)。 
 
 * 「制御式」の方が内容を的確に表すか
+
+* 値を返す　if
 
 ### [if ](https://docs.ruby-lang.org/ja/latest/doc/spec=2fcontrol.html#if)(if Expression)
 
@@ -46,12 +95,15 @@ puts 'OK' if val == true
 
 :question: 条件が成立しなければ nil を返します。
 
-複文
 ``` ruby
-puts 'one'; puts 'two' if false
-```
-\#=> one　左辺は puts 'two' のみ
+val= true
+left= 
+  puts ""  if val == true
 
+  p val
+```
+
+複文
 ``` ruby
 (puts 'one'; puts 'two') if false
 ```
@@ -100,10 +152,49 @@ when arg.is_a? String
   val= arg
 ```
 
+### 繰返し
+
+#### [break](https://docs.ruby-lang.org/ja/latest/doc/spec=2fcontrol.html#break)
+
+文法
+``` ruby
+break
+
+break val
+```
+
+>  break はもっとも内側のループを脱出します。ループとは<br>  
+    ・ while  
+    ・ until  
+    ・for  
+    ・イテレータ<br><br>
+のいずれかを指します。C 言語と異なり、break はループを脱出する作 用だけを持ち、case を抜ける作用は持ちません。  
+break によりループを抜けた for やイテレータは nil を返します。 ただし、引数を指定した場合はループの戻り値はその引数になります
+
+例(引数有りの場合)
+
+``` ruby
+check=
+  0.upto(5).each do|i|
+    break i*10 if i > 3
+  end
+
+p check #=>40
+```
+
 # [Encoding クラス](https://docs.ruby-lang.org/ja/latest/class/Encoding.html)
+
+# [Symbol クラス](https://docs.ruby-lang.org/ja/latest/class/Symbol.html)
+
+<br><br>
+
+# markdown テスト
+~~this~~
 
 # markdown参考
 
 * [guides.github](https://guides.github.com/features/mastering-markdown/)
 
 * [emoji](https://github.com/ikatyang/emoji-cheat-sheet/blob/master/README.md)
+
+
